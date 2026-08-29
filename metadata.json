@@ -1,0 +1,6 @@
+{
+  "name": "Taskly",
+  "description": "Plataforma de produtividade inteligente com gestão de tarefas, alertas automatizados, autenticação de usuários, mercado integrado para postar e vender produtos/serviços com PIX e banco de dados PostgreSQL.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  /* Motion tokens */
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-settle: cubic-bezier(0.16, 1, 0.30, 1);
+  --dur-nav: 0.62s;
+  --dur-navitem: 0.5s;
+  --dur-head: 0.92s;
+  --dur-copy: 0.62s;
+  --dur-cta: 0.58s;
+  --dur-panel: 0.94s;
+
+  /* Weights */
+  --fw-light: 388;
+  --fw-regular: 470;
+  --fw-medium: 500;
+  --fw-semibold: 511;
+  --fw-bold: 577;
+  --fw-black: 783;
+
+  /* Tracking */
+  --tr-display: -0.0572em;
+  --tr-title: -0.0570em;
+  --tr-heading: -0.0200em;
+  --tr-body: -0.0475em;
+  --tr-eyebrow: -0.0293em;
+  --tr-ui: -0.0080em;
+  --tr-cta: -0.0200em;
+  --tr-meta: -0.0447em;
+  --tr-item: -0.0287em;
+  --tr-caption: -0.0295em;
+  --tr-tab: -0.0398em;
+  --tr-wordmark: -0.0075em;
+
+  /* Card Geometry Scale */
+  --u: 548px;
+  --dp: calc(var(--u) / 548);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+/* Keyframes using fluid curves, gentle scale and soft alpha transitions */
+@keyframes enter-fluid-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-26px) scale(0.98);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 0.92;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes enter-soft-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes enter-soft-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes enter-panel-float {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes enter-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Utility classes for tight typography */
+.t-display {
+  letter-spacing: var(--tr-display);
+  line-height: 1.15;
+}
+
+.t-body {
+  letter-spacing: var(--tr-body);
+  line-height: 1.48;
+}
+
+.t-title {
+  letter-spacing: var(--tr-title);
+  line-height: 1.1;
+}
+
+.t-heading {
+  letter-spacing: var(--tr-heading);
+}
+
+.t-eyebrow {
+  letter-spacing: var(--tr-eyebrow);
+}
+
+.t-meta {
+  letter-spacing: var(--tr-meta);
+}
+
+.t-ui {
+  letter-spacing: var(--tr-ui);
+}
+
+.t-cta {
+  letter-spacing: var(--tr-cta);
+}
+
+/* Fluid Entrance animation classes with organic cubic-bezier easing */
+.anim-enter-fluid {
+  animation: enter-fluid-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-enter-drop {
+  animation: enter-soft-drop 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+
+.anim-enter-copy {
+  animation: enter-soft-rise 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+
+.anim-enter-cta {
+  animation: enter-soft-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.anim-enter-panel {
+  animation: enter-panel-float 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+}
